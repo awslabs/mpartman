@@ -1,7 +1,7 @@
 ## Package installation
----
 You can install Mpartman in your PostgreSQL database that runs on-premises or in the AWS Cloud. You can install Mpartman as an extension or as a set of functions.  
-
+  
+---
 ### Install as an extension.
 > **Note:** You can install the package as an extension into either the bare metal host or virtual machine.  
 

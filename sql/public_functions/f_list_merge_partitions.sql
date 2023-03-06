@@ -185,7 +185,7 @@ begin
     -- Insert the data from detached partition
     for l_a in 1..array_length(p_part_arr, 1)
     loop
-      execute 'insert into ' || l_table_name || ' select * from ' || p_part_arr[l_a];
+      execute 'insert into ' || l_table_name || ' overriding system value select * from ' || p_part_arr[l_a];
       execute 'drop table if exists ' || p_part_arr[l_a];
     end loop;
 

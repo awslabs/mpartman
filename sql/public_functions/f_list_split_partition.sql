@@ -181,7 +181,7 @@ SELECT array_agg(x order by x) into l_bound_arr FROM unnest(l_bound_arr) x;
     end loop;
 
     -- Insert the data from detached partition
-    execute 'insert into ' || l_table_name || ' select * from ' || l_schema || '.' || l_temp_split_table_name;
+    execute 'insert into ' || l_table_name || ' overriding system value select * from ' || l_schema || '.' || l_temp_split_table_name;
     execute 'drop table if exists ' || l_schema || '.' || l_temp_split_table_name;
 
     -- Set session_replication_role parameter to previous value

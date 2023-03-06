@@ -335,7 +335,7 @@ begin
         l_default_part_name := mpartman.f_set_part_name(l_only_table_name, '_p_', 'default');
         execute 'create table if not exists ' || l_schema || '.' || l_default_part_name || ' partition of ' ||
                 l_table_name || ' default';
-        execute 'insert into ' || l_table_name || ' select * from ' || l_schema || '.' || l_temp_table_name;
+        execute 'insert into ' || l_table_name || ' overriding system value select * from ' || l_schema || '.' || l_temp_table_name;
         execute 'drop table if exists ' || l_schema || '.' || l_temp_table_name;
         -- We created new default partition, so have to return its name along with other created partitions
         return next l_schema || '.' || l_default_part_name;
@@ -351,7 +351,7 @@ begin
       execute 'create table if not exists ' || l_schema || '.' || l_t || ' partition of ' || l_table_name || ' default';
       perform mpartman.f_grant_table_privileges(l_schema, l_only_table_name, l_t);
     end if;
-    execute 'insert into ' || l_table_name || ' select * from ' || l_schema || '.' || l_temp_split_table_name;
+    execute 'insert into ' || l_table_name || ' overriding system value select * from ' || l_schema || '.' || l_temp_split_table_name;
     execute 'drop table if exists ' || l_schema || '.' || l_temp_split_table_name;
     -- Raise exception if shouldn't have to be default partition but it has a data
     l_defpartdata := mpartman.f_default_part_has_data(l_table_oid);

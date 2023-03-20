@@ -17,6 +17,7 @@ from
          case partstrat
               when 'l' then 'list'
               when 'r' then 'range'
+              when 'h' then 'hash'
          end as partition_strategy,
          unnest(partattrs) column_index
      from
@@ -41,6 +42,7 @@ select
     case ppt.partstrat
         when 'l' then 'list'
         when 'r' then 'range'
+        when 'h' then 'hash'
     end as partition_strategy,
     pg_get_expr(pc.relpartbound, pc.oid) as part_boundary,
     quote_ident(pt.relnamespace::regnamespace::text) || '.' || quote_ident(pt.relname) as main_table_name,

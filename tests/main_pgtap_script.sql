@@ -23,7 +23,7 @@ SET client_min_messages = error;
 BEGIN;
 
 -- Plan the tests.
-SELECT plan(123);
+SELECT plan(126);
 
 -- Run the tests.
 \ir test_list.sql

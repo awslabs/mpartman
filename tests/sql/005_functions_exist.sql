@@ -110,3 +110,6 @@ SELECT     isnt_definer(:'mpschema', 'f_set_part_name', ARRAY['text', 'text', 't
 SELECT function_returns(:'mpschema', 'f_subp_is_eligible', ARRAY['text', 'boolean'], 'text');
 SELECT     isnt_definer(:'mpschema', 'f_subp_is_eligible', ARRAY['text', 'boolean']);
 
+SELECT function_returns(:'mpschema', 'f_get_hash_part_by_value', ARRAY['oid', 'text', 'text'], 'text');
+SELECT     isnt_definer(:'mpschema', 'f_get_hash_part_by_value', ARRAY['oid', 'text', 'text']);
+

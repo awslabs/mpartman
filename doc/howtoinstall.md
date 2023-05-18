@@ -9,7 +9,7 @@ You can install Mpartman in your PostgreSQL database that runs on-premises or in
 
 1. Clone the git repository.
 2. Change directory to mpartman.
-3. Run `sudu make install`.
+3. Run `sudo make install`.
 4. Connect to your database using psql as a superuser.
 5. Run the following commands (supposing you'll use the schema mpartman):
 ```

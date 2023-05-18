@@ -30,15 +30,15 @@ begin
     -- Get part name by value
     l_table_name := mpartman.f_get_part_by_value(p_table_oid, l_type, p_value);
 
+    select v1.part_boundary into l_t from mpartman.v_pt_tree v1 where v1.part_name = l_table_name;
     -- Check the behavior with default partition
     if (not p_count_defpart and l_table_name is not null) then
-	select v1.part_boundary into l_t from mpartman.v_pt_tree v1 where v1.part_name = l_table_name;
 	if (l_t = 'DEFAULT') then
 		return null;
 	end if;
     end if;
 
-    if (p_value2 is null) then
+    if (p_value2 is null or l_t = 'DEFAULT') then
       return l_table_name;
     else
       -- Get subpartition table oid by name

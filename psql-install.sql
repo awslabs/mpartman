@@ -8,6 +8,7 @@
 \ir sql/supplemental_functions/f_subp_is_eligible.sql
 \ir sql/supplemental_functions/f_get_part_column.sql
 \ir sql/supplemental_functions/f_is_eligible_for_detach.sql
+\ir sql/supplemental_functions/f_get_hash_part_by_value.sql
 \ir sql/supplemental_functions/f_get_part_by_value.sql
 \ir sql/supplemental_functions/f_set_config.sql
 \ir sql/supplemental_functions/f_get_min_max_value_range.sql
